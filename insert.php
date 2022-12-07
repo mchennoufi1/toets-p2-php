@@ -99,10 +99,10 @@ try{
                             VALUES('$_POST[model]','$_POST[type]','$_POST[kleur]', '$_POST[gewicht]', '$_POST[prijs]', '$_POST[voorraad]')");
                                 if ($query->execute()) {
                                     echo "<br>";
-                                    echo "<p class='message'>Rij toegevoegd";
+                                    echo "<p class='flash-message'>Rij toegevoegd";
                                     echo "</p>";
                                     echo "<br>";
-                                    header("Location: index.php");
+
                                 } else {
                                     echo "Er is een fout opgetreden.";
                                 }
@@ -112,6 +112,7 @@ try{
                 }
             }
         }
+        header("Location: index.php");
     }
 } catch(PDOException $e) {
     die("Error!: " . $e->getmessage());
